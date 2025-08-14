@@ -3,11 +3,11 @@ const path = require('path');
 
 const eventsRoute = require('./routes/events');
 const quizRoute = require('./routes/quiz');
+app.use('/quiz', quizRoute);
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const quizRoute = require('./routes/quiz');
-app.use('/quiz', quizRoute);
+
 // Middleware
 app.use(express.json());
 
