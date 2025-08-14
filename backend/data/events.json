@@ -5,6 +5,260 @@
     "year": -383,
     "event": "Birth of Aristotle, Greek philosopher and student of Plato."
   },
+  
+  {
+    "date": "250-03-01",
+    "month": 3,
+    "year": -249,
+    "event": "Lion Capital of Ashoka established at Sarnath—Emperor Ashoka’s edict."
+  },
+  {
+    "date": "319-06-01",
+    "month": 6,
+    "year": 319,
+    "event": "Coronation of Chandragupta I; Gupta Empire begins golden age."
+  },
+  {
+    "date": "1192-03-21",
+    "month": 3,
+    "year": 1192,
+    "event": "Second Battle of Tarain—Prithviraj Chauhan defeated by Muhammad Ghori."
+  },
+  {
+    "date": "1526-04-21",
+    "month": 4,
+    "year": 1526,
+    "event": "First Battle of Panipat—Babur defeats Ibrahim Lodi; Mughal Empire begins."
+  },
+  {
+    "date": "1612-10-10",
+    "month": 10,
+    "year": 1612,
+    "event": "Battle of Sindhuli—Rana Bahadur Shah of Nepal defeats British East India Company."
+  },
+  {
+    "date": "1757-06-23",
+    "month": 6,
+    "year": 1757,
+    "event": "Battle of Plassey—Robert Clive defeats Siraj-ud-Daulah; British ascendancy in India."
+  },
+  {
+    "date": "1764-02-23",
+    "month": 2,
+    "year": 1764,
+    "event": "Battle of Buxar—Establishment of British East India Company’s rule in India."
+  },
+  {
+    "date": "1781-10-01",
+    "month": 10,
+    "year": 1781,
+    "event": "Siege of Madras ends—British capture from Hyder Ali during Second Anglo-Mysore War."
+  },
+  {
+    "date": "1857-05-10",
+    "month": 5,
+    "year": 1857,
+    "event": "Indian Rebellion of 1857 begins—Siege of Delhi by sepoys."
+  },
+  {
+    "date": "1858-08-02",
+    "month": 8,
+    "year": 1858,
+    "event": "British Crown assumes power after Government of India Act 1858; end of Company rule."
+  },
+  {
+    "date": "1861-10-01",
+    "month": 10,
+    "year": 1861,
+    "event": "First Indian Civil Service (ICS) exam held, open only to British candidates."
+  },
+  {
+    "date": "1885-12-28",
+    "month": 12,
+    "year": 1885,
+    "event": "Indian National Congress (INC) founded in Bombay."
+  },
+  {
+    "date": "1905-07-19",
+    "month": 7,
+    "year": 1905,
+    "event": "Partition of Bengal announced by Curzon; sparks Swadeshi movement."
+  },
+  {
+    "date": "1919-04-13",
+    "month": 4,
+    "year": 1919,
+    "event": "Jallianwala Bagh massacre—Brig. General Dyer opens fire on peaceful crowd in Amritsar."
+  },
+  {
+    "date": "1919-06-08",
+    "month": 6,
+    "year": 1919,
+    "event": "Montague-Chelmsford Reforms announced—dyarchy introduced in provinces."
+  },
+  {
+    "date": "1920-09-01",
+    "month": 9,
+    "year": 1920,
+    "event": "Non-Cooperation Movement launched by Mahatma Gandhi."
+  },
+  {
+    "date": "1930-03-12",
+    "month": 3,
+    "year": 1930,
+    "event": "Salt March begins—Mahatma Gandhi’s Dandi March for civil disobedience."
+  },
+  {
+    "date": "1935-08-08",
+    "month": 8,
+    "year": 1935,
+    "event": "Government of India Act 1935 passed—provincial autonomy introduced."
+  },
+  {
+    "date": "1942-08-08",
+    "month": 8,
+    "year": 1942,
+    "event": "Quit India Movement launched—'Do or Die' call by Gandhi in Bombay."
+  },
+  {
+    "date": "1947-06-03",
+    "month": 6,
+    "year": 1947,
+    "event": "Mountbatten Plan announced—Partition scheme for India and Pakistan."
+  },
+  {
+    "date": "1947-08-15",
+    "month": 8,
+    "year": 1947,
+    "event": "India gains independence from British rule; Indian Independence Act comes into effect."
+  },
+  {
+    "date": "1950-01-26",
+    "month": 1,
+    "year": 1950,
+    "event": "Constitution of India comes into effect; Republic of India established."
+  },
+  {
+    "date": "1952-03-01",
+    "month": 3,
+    "year": 1952,
+    "event": "First general elections held in independent India."
+  },
+  {
+    "date": "1954-05-01",
+    "month": 5,
+    "year": 1954,
+    "event": "Kanoon Nyayika Day—Indian judiciary reforms day (symbolic)."
+  },
+  {
+    "date": "1962-10-20",
+    "month": 10,
+    "year": 1962,
+    "event": "India-China War starts when Chinese troops cross McMahon Line."
+  },
+  {
+    "date": "1965-09-06",
+    "month": 9,
+    "year": 1965,
+    "event": "India-Pakistan War begins over Kashmir region."
+  },
+  {
+    "date": "1971-12-16",
+    "month": 12,
+    "year": 1971,
+    "event": "Bangladesh Liberation War ends; Birth of Bangladesh."
+  },
+  {
+    "date": "1974-05-18",
+    "month": 5,
+    "year": 1974,
+    "event": "Pokhran-I: India conducts its first nuclear test (Smiling Buddha)."
+  },
+  {
+    "date": "1975-06-25",
+    "month": 6,
+    "year": 1975,
+    "event": "State of Emergency declared in India by Prime Minister Indira Gandhi."
+  },
+  {
+    "date": "1977-03-21",
+    "month": 3,
+    "year": 1977,
+    "event": "Emergency lifted; Janata Party wins elections—first non-Congress government."
+  },
+  {
+    "date": "1991-07-24",
+    "month": 7,
+    "year": 1991,
+    "event": "P.V. Narasimha Rao becomes Prime Minister; economic reforms begin under Manmohan Singh."
+  },
+  {
+    "date": "1992-12-06",
+    "month": 12,
+    "year": 1992,
+    "event": "Demolition of Babri Masjid in Ayodhya; communal tensions ensue."
+  },
+  {
+    "date": "1998-05-11",
+    "month": 5,
+    "year": 1998,
+    "event": "Pokhran-II: India conducts five nuclear tests at Pokhran under PM Vajpayee."
+  },
+  {
+    "date": "2001-01-26",
+    "month": 1,
+    "year": 2001,
+    "event": "India achieves victimhood status under UN Convention on Transnational Organized Crime."
+  },
+  {
+    "date": "2008-11-26",
+    "month": 11,
+    "year": 2008,
+    "event": "Mumbai terrorist attacks—'26/11' strikes at key city landmarks."
+  },
+  {
+    "date": "2014-05-26",
+    "month": 5,
+    "year": 2014,
+    "event": "Narendra Modi becomes Prime Minister after BJP’s sweeping victory."
+  },
+  {
+    "date": "2016-11-08",
+    "month": 11,
+    "year": 2016,
+    "event": "Demonetisation announced—₹500 and ₹1000 notes withdrawn."
+  },
+  {
+    "date": "2019-08-05",
+    "month": 8,
+    "year": 2019,
+    "event": "Article 370 abrogated—Jammu & Kashmir’s special status revoked."
+  },
+  {
+    "date": "2020-03-24",
+    "month": 3,
+    "year": 2020,
+    "event": "India announces nationwide COVID-19 lockdown—one of the world’s largest."
+  },
+  {
+    "date": "2022-09-08",
+    "month": 9,
+    "year": 2022,
+    "event": "Queen Elizabeth II passes away—end of an era (Commonwealth context)."
+  },
+  {
+    "date": "2023-08-23",
+    "month": 8,
+    "year": 2023,
+    "event": "Chandrayaan-3 lands on lunar south pole—India’s significant space achievement."
+  },
+  {
+    "date": "2024-01-30",
+    "month": 1,
+    "year": 2024,
+    "event": "India celebrates 75 years of Republic Day (Quasquicentennial reflection)."
+  },
+  
   {
     "date": "44 BC-03-15",
     "month": 3,
