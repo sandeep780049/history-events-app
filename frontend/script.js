@@ -19,8 +19,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const selectedMonth = parseInt(monthSelect.value, 10);
     const selectedYear = parseInt(yearInput.value, 10);
 
-    if (!selectedMonth || !selectedYear) {
-      resultsDiv.innerHTML = `<p style="color:red;">Please select month and year.</p>`;
+    if (!selectedMonth || isNaN(selectedYear)) {
+      resultsDiv.innerHTML = `<p style="color:red;">Please select month and enter a valid year.</p>`;
       return;
     }
 
@@ -28,6 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const res = await fetch("/events");
       const events = await res.json();
 
+      // Filter events based on month and year
       const filtered = events.filter(ev =>
         parseInt(ev.month, 10) === selectedMonth &&
         parseInt(ev.year, 10) === selectedYear
@@ -40,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
           .map(ev => `
             <div class="event">
               <strong>${ev.date ? ev.date + " " : ""}${monthNames[selectedMonth - 1]} ${ev.year}</strong>
-              <p>${ev.description}</p>
+              <p>${ev.event}</p>
             </div>
           `).join("");
       }
