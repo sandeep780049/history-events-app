@@ -1,52 +1,17 @@
 [
   {
     "question": "Who was the first President of India?",
-    "options": ["Rajendra Prasad", "Sarvepalli Radhakrishnan", "Zakir Hussain", "V. V. Giri"],
-    "answer": 0
+    "options": ["Rajendra Prasad", "Jawaharlal Nehru", "Sardar Patel", "Dr. Radhakrishnan"],
+    "answer": "Rajendra Prasad"
   },
   {
-    "question": "In which year did the First War of Indian Independence take place?",
-    "options": ["1857", "1848", "1869", "1875"],
-    "answer": 0
+    "question": "In which year did India gain independence?",
+    "options": ["1942", "1947", "1950", "1962"],
+    "answer": "1947"
   },
   {
-    "question": "Who was known as the Iron Man of India?",
-    "options": ["Jawaharlal Nehru", "Sardar Vallabhbhai Patel", "Subhas Chandra Bose", "Bal Gangadhar Tilak"],
-    "answer": 1
-  },
-  {
-    "question": "Which movement was launched by Mahatma Gandhi in 1942?",
-    "options": ["Non-Cooperation Movement", "Civil Disobedience Movement", "Quit India Movement", "Swadeshi Movement"],
-    "answer": 2
-  },
-  {
-    "question": "Who was the founder of the Maurya Empire?",
-    "options": ["Ashoka", "Chandragupta Maurya", "Bindusara", "Bimbisara"],
-    "answer": 1
-  },
-  {
-    "question": "In which year did India become a republic?",
-    "options": ["1947", "1950", "1952", "1949"],
-    "answer": 1
-  },
-  {
-    "question": "The Battle of Plassey was fought in which year?",
-    "options": ["1757", "1764", "1857", "1799"],
-    "answer": 0
-  },
-  {
-    "question": "Who was the last Governor-General of independent India?",
-    "options": ["C. Rajagopalachari", "Lord Mountbatten", "Rajendra Prasad", "Dr. S. Radhakrishnan"],
-    "answer": 0
-  },
-  {
-    "question": "Who gave the slogan 'Inquilab Zindabad'?",
-    "options": ["Bhagat Singh", "Subhas Chandra Bose", "Bal Gangadhar Tilak", "Mahatma Gandhi"],
-    "answer": 0
-  },
-  {
-    "question": "Which Mughal emperor built the Taj Mahal?",
-    "options": ["Akbar", "Shah Jahan", "Jahangir", "Aurangzeb"],
-    "answer": 1
+    "question": "The Quit India Movement was launched in?",
+    "options": ["1940", "1942", "1945", "1930"],
+    "answer": "1942"
   }
 ]
