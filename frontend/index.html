@@ -6,22 +6,42 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>Historical Events</h1>
-  <div>
-    <label>Month:</label>
-    <input type="number" id="month" min="1" max="12">
-    <label>Year:</label>
-    <input type="number" id="year">
-    <button onclick="fetchEvents()">Get Events</button>
-    <button onclick="fetchQuiz()">Take Quiz</button>
+  <div class="container">
+    <h1>📜 Historical Events Finder</h1>
+    <div class="search-box">
+      <label for="month">Month:</label>
+      <select id="month">
+        <option value="1">January</option>
+        <option value="2">February</option>
+        <option value="3">March</option>
+        <option value="4">April</option>
+        <option value="5">May</option>
+        <option value="6">June</option>
+        <option value="7">July</option>
+        <option value="8">August</option>
+        <option value="9">September</option>
+        <option value="10">October</option>
+        <option value="11">November</option>
+        <option value="12">December</option>
+      </select>
+
+      <label for="year">Year:</label>
+      <input type="number" id="year" placeholder="e.g. 1969">
+
+      <div class="button-row">
+        <button class="btn primary" onclick="fetchEvents()">Get Events</button>
+        <button class="btn secondary" onclick="fetchQuiz()">Take Quiz</button>
+        <button class="btn success" onclick="downloadEvents()">Download</button>
+        <button class="btn warning" onclick="copyEvents()">Copy</button>
+      </div>
+    </div>
+
+    <h2>📅 Events</h2>
+    <div id="events-list" class="events-list"></div>
+
+    <h2>🧠 Quiz</h2>
+    <div id="quiz" class="quiz-section"></div>
   </div>
-
-  <h2>Events</h2>
-  <ul id="events-list"></ul>
-  <button onclick="downloadEvents()">Download</button>
-
-  <h2>Quiz</h2>
-  <div id="quiz"></div>
 
   <script src="script.js"></script>
 </body>
