@@ -4,7 +4,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const generateBtn = document.getElementById("generate");
   const resultsDiv = document.getElementById("results");
 
-  // Month names for dropdown (January, February, etc.)
   const monthNames = [
     "January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"
@@ -15,13 +14,13 @@ document.addEventListener("DOMContentLoaded", () => {
     .map((m, i) => `<option value="${i + 1}">${m}</option>`)
     .join("");
 
-  // Handle "Generate" button click
+  // Fetch and display events
   generateBtn.addEventListener("click", async () => {
     const selectedMonth = parseInt(monthSelect.value, 10);
     const selectedYear = parseInt(yearInput.value, 10);
 
     if (!selectedMonth || !selectedYear) {
-      resultsDiv.innerHTML = `<p style="color:red;">Please select both month and year.</p>`;
+      resultsDiv.innerHTML = `<p style="color:red;">Please select month and year.</p>`;
       return;
     }
 
@@ -29,7 +28,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const res = await fetch("/events");
       const events = await res.json();
 
-      // Filter events
       const filtered = events.filter(ev =>
         parseInt(ev.month, 10) === selectedMonth &&
         parseInt(ev.year, 10) === selectedYear
@@ -39,14 +37,15 @@ document.addEventListener("DOMContentLoaded", () => {
         resultsDiv.innerHTML = `<p style="color:orange;">No events found for ${monthNames[selectedMonth - 1]} ${selectedYear}.</p>`;
       } else {
         resultsDiv.innerHTML = filtered
-          .map(ev => `<div class="event">
+          .map(ev => `
+            <div class="event">
               <strong>${ev.date ? ev.date + " " : ""}${monthNames[selectedMonth - 1]} ${ev.year}</strong>
               <p>${ev.description}</p>
-            </div>`)
-          .join("");
+            </div>
+          `).join("");
       }
     } catch (err) {
-      console.error("Error fetching events:", err);
+      console.error("Error loading events:", err);
       resultsDiv.innerHTML = `<p style="color:red;">Error loading events.</p>`;
     }
   });
