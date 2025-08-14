@@ -10,8 +10,8 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
-// Path to events.json
-const eventsPath = path.join(__dirname, 'backend', 'data', 'events.json');
+// Path to events.json (inside backend/data)
+const eventsPath = path.join(__dirname, 'data', 'events.json');
 let events = [];
 try {
   events = JSON.parse(fs.readFileSync(eventsPath, 'utf-8'));
@@ -19,14 +19,11 @@ try {
   console.error('Error reading events.json:', err.message);
 }
 
-// Serve frontend (supports backend/frontend layout)
-const frontendDir = path.join(__dirname, 'frontend');
-const backendFrontendDir = path.join(__dirname, 'backend', 'frontend');
+// Serve frontend (works both locally and on Render)
+const frontendDir = path.join(__dirname, 'frontend'); 
 
 if (fs.existsSync(frontendDir)) {
   app.use(express.static(frontendDir));
-} else if (fs.existsSync(backendFrontendDir)) {
-  app.use(express.static(backendFrontendDir));
 }
 
 // API: Get events by month/year
@@ -35,8 +32,7 @@ app.get('/api/events', (req, res) => {
   if (!month || !year) {
     return res.status(400).json({ error: 'Month and year are required' });
   }
-
-  const filteredEvents = events.filter(e => 
+  const filteredEvents = events.filter(e =>
     e.month === parseInt(month) && e.year === parseInt(year)
   );
   res.json(filteredEvents);
@@ -48,15 +44,12 @@ app.post('/api/quiz', (req, res) => {
   if (!month || !year) {
     return res.status(400).json({ error: 'Month and year are required' });
   }
-
-  const filteredEvents = events.filter(e => 
+  const filteredEvents = events.filter(e =>
     e.month === parseInt(month) && e.year === parseInt(year)
   );
-
   if (filteredEvents.length === 0) {
     return res.json({ question: null, answer: null });
   }
-
   const randomEvent = filteredEvents[Math.floor(Math.random() * filteredEvents.length)];
   res.json({
     question: `In which year did this happen: "${randomEvent.event}"?`,
@@ -64,10 +57,9 @@ app.post('/api/quiz', (req, res) => {
   });
 });
 
-// Fallback to index.html for frontend routes
+// Fallback to index.html
 app.get(/^(?!\/api).*/, (req, res) => {
-  const base = fs.existsSync(frontendDir) ? frontendDir : backendFrontendDir;
-  res.sendFile(path.join(base, 'index.html'));
+  res.sendFile(path.join(frontendDir, 'index.html'));
 });
 
 app.listen(PORT, () => {
