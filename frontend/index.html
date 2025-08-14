@@ -1,1 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Historical Events Finder</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Historical Events</h1>
+  <div>
+    <label>Month:</label>
+    <input type="number" id="month" min="1" max="12">
+    <label>Year:</label>
+    <input type="number" id="year">
+    <button onclick="fetchEvents()">Get Events</button>
+    <button onclick="fetchQuiz()">Take Quiz</button>
+  </div>
 
+  <h2>Events</h2>
+  <ul id="events-list"></ul>
+  <button onclick="downloadEvents()">Download</button>
+
+  <h2>Quiz</h2>
+  <div id="quiz"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
