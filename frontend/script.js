@@ -1,68 +1,110 @@
-function fetchEvents() {
-  const month = document.getElementById("month").value;
-  const year = document.getElementById("year").value;
+document.addEventListener('DOMContentLoaded', () => {
+  const monthSelect = document.getElementById('month');
+  const yearInput = document.getElementById('year');
+  const eventsContainer = document.getElementById('events');
+  const quizContainer = document.getElementById('quiz');
+  const quizButton = document.getElementById('generateQuiz');
 
-  fetch(`/api/events/${month}/${year}`)
-    .then(res => res.json())
-    .then(data => {
-      const container = document.getElementById("events-list");
-      container.innerHTML = "";
-      if (data.length === 0) {
-        container.innerHTML = `<p>No events found for this period.</p>`;
-        return;
-      }
-      data.forEach(ev => {
-        const card = document.createElement("div");
-        card.classList.add("event-card");
-        card.innerHTML = `<strong>${ev.date}</strong><br>${ev.event}`;
-        container.appendChild(card);
-      });
+  // Populate months (January, February, etc.)
+  const months = [
+    'January','February','March','April','May','June',
+    'July','August','September','October','November','December'
+  ];
+  months.forEach((name, index) => {
+    const opt = document.createElement('option');
+    opt.value = index + 1; // month number (1-12)
+    opt.textContent = name;
+    monthSelect.appendChild(opt);
+  });
+
+  // Fetch events from backend
+  async function fetchEvents(month, year) {
+    const res = await fetch(`/api/events?month=${month}&year=${year}`);
+    const data = await res.json();
+    displayEvents(data);
+  }
+
+  // Display all matching events
+  function displayEvents(events) {
+    eventsContainer.innerHTML = '';
+    if (!events || events.length === 0) {
+      eventsContainer.innerHTML = '<p>No events found for this month/year.</p>';
+      return;
+    }
+    events.forEach(ev => {
+      const div = document.createElement('div');
+      div.className = 'event-card';
+      div.innerHTML = `
+        <h3>${ev.event}</h3>
+        <p><strong>Year:</strong> ${ev.year}</p>
+        <p><strong>Month:</strong> ${months[ev.month - 1]}</p>
+      `;
+      eventsContainer.appendChild(div);
     });
-}
+  }
 
-function fetchQuiz() {
-  const month = document.getElementById("month").value;
-  const year = document.getElementById("year").value;
-
-  fetch(`/api/events/quiz/${month}/${year}`)
-    .then(res => res.json())
-    .then(quiz => {
-      const quizDiv = document.getElementById("quiz");
-      quizDiv.innerHTML = "";
-      if (!Array.isArray(quiz) || quiz.length === 0) {
-        quizDiv.innerHTML = `<p>No quiz available for this period.</p>`;
-        return;
-      }
-      quiz.forEach(q => {
-        const div = document.createElement("div");
-        div.classList.add("quiz-question");
-        div.innerHTML = `<strong>${q.question}</strong><br>` +
-          q.options.map(opt => `<button onclick="checkAnswer('${opt}','${q.answer}')">${opt}</button>`).join(" ");
-        quizDiv.appendChild(div);
-      });
+  // Fetch quiz question
+  async function fetchQuiz(month, year) {
+    const res = await fetch('/api/quiz', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ month, year })
     });
-}
+    const data = await res.json();
+    displayQuiz(data);
+  }
 
-function checkAnswer(selected, correct) {
-  alert(selected === correct ? "✅ Correct!" : `❌ Wrong! Correct answer: ${correct}`);
-}
+  // Display quiz
+  function displayQuiz({ question, answer }) {
+    quizContainer.innerHTML = '';
+    if (!question) {
+      quizContainer.innerHTML = '<p>No quiz available for this month/year.</p>';
+      return;
+    }
 
-function downloadEvents() {
-  const eventsText = [...document.querySelectorAll(".event-card")]
-    .map(card => card.innerText)
-    .join("\n\n");
-  const blob = new Blob([eventsText], { type: "text/plain" });
-  const link = document.createElement("a");
-  link.href = URL.createObjectURL(blob);
-  link.download = "events.txt";
-  link.click();
-}
+    const questionEl = document.createElement('p');
+    questionEl.textContent = question;
 
-function copyEvents() {
-  const eventsText = [...document.querySelectorAll(".event-card")]
-    .map(card => card.innerText)
-    .join("\n\n");
-  navigator.clipboard.writeText(eventsText)
-    .then(() => alert("📋 Events copied to clipboard!"))
-    .catch(err => alert("❌ Failed to copy: " + err));
-}
+    const inputEl = document.createElement('input');
+    inputEl.type = 'number';
+    inputEl.placeholder = 'Enter your answer year';
+
+    const submitBtn = document.createElement('button');
+    submitBtn.textContent = 'Submit';
+
+    const resultEl = document.createElement('p');
+
+    submitBtn.addEventListener('click', () => {
+      const userAnswer = parseInt(inputEl.value);
+      if (userAnswer === answer) {
+        resultEl.textContent = '✅ Correct!';
+        resultEl.style.color = 'green';
+      } else {
+        resultEl.textContent = `❌ Wrong! Correct answer: ${answer}`;
+        resultEl.style.color = 'red';
+      }
+    });
+
+    quizContainer.appendChild(questionEl);
+    quizContainer.appendChild(inputEl);
+    quizContainer.appendChild(submitBtn);
+    quizContainer.appendChild(resultEl);
+  }
+
+  // Event listeners
+  document.getElementById('generateEvents').addEventListener('click', () => {
+    const month = parseInt(monthSelect.value);
+    const year = parseInt(yearInput.value);
+    if (month && year) {
+      fetchEvents(month, year);
+    }
+  });
+
+  quizButton.addEventListener('click', () => {
+    const month = parseInt(monthSelect.value);
+    const year = parseInt(yearInput.value);
+    if (month && year) {
+      fetchQuiz(month, year);
+    }
+  });
+});
