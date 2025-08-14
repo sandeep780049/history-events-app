@@ -1,41 +1,37 @@
-document.getElementById('generateBtn').addEventListener('click', async () => {
-  const monthSelect = document.getElementById('month');
-  const monthValue = monthSelect.value.trim();
-  const yearValue = document.getElementById('year').value.trim();
+document.addEventListener('DOMContentLoaded', () => {
+    const monthSelect = document.getElementById('month');
+    const yearInput = document.getElementById('year');
+    const eventsContainer = document.getElementById('events');
+    const loadBtn = document.getElementById('loadEvents');
 
-  // Map month names to numbers
-  const monthMap = {
-    January: 1, February: 2, March: 3, April: 4, May: 5, June: 6,
-    July: 7, August: 8, September: 9, October: 10, November: 11, December: 12
-  };
+    loadBtn.addEventListener('click', () => {
+        const month = monthSelect.value;
+        const year = parseInt(yearInput.value);
+        if (!month || !year) {
+            eventsContainer.innerHTML = "<p>Please select a month and year.</p>";
+            return;
+        }
 
-  const monthNum = isNaN(monthValue) ? monthMap[monthValue] : parseInt(monthValue, 10);
+        fetch(`/data/events.json`)
+            .then(res => res.json())
+            .then(data => {
+                const filtered = data.filter(ev =>
+                    ev.month.toLowerCase() === month.toLowerCase() &&
+                    ev.year === year
+                );
 
-  // Build API URL
-  let query = `/api/events?month=${monthNum}`;
-  if (yearValue) {
-    query += `&year=${parseInt(yearValue, 10)}`;
-  }
+                if (filtered.length === 0) {
+                    eventsContainer.innerHTML = `<p>No events found for ${month} ${year}</p>`;
+                    return;
+                }
 
-  try {
-    const res = await fetch(query);
-    const events = await res.json();
-
-    const resultDiv = document.getElementById('result');
-    resultDiv.innerHTML = '';
-
-    if (!events.length) {
-      resultDiv.innerHTML = `<p>No events found for ${monthValue} ${yearValue || ''}</p>`;
-      return;
-    }
-
-    events.forEach(ev => {
-      const div = document.createElement('div');
-      div.className = 'event';
-      div.innerHTML = `<strong>${ev.date || ''}</strong> - ${ev.event} (${ev.year})`;
-      resultDiv.appendChild(div);
+                eventsContainer.innerHTML = filtered
+                    .map(ev => `<div class="event"><strong>${ev.year}</strong> - ${ev.name}</div>`)
+                    .join('');
+            })
+            .catch(err => {
+                console.error(err);
+                eventsContainer.innerHTML = `<p>Error loading events.</p>`;
+            });
     });
-  } catch (err) {
-    console.error('Error fetching events:', err);
-  }
 });
