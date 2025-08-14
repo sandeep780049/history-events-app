@@ -1,37 +1,45 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const monthSelect = document.getElementById('month');
-    const yearInput = document.getElementById('year');
-    const eventsContainer = document.getElementById('events');
-    const loadBtn = document.getElementById('loadEvents');
+document.addEventListener("DOMContentLoaded", () => {
+    const monthSelect = document.getElementById("month");
+    const yearSelect = document.getElementById("year");
+    const eventsContainer = document.getElementById("events");
 
-    loadBtn.addEventListener('click', () => {
-        const month = monthSelect.value;
-        const year = parseInt(yearInput.value);
-        if (!month || !year) {
-            eventsContainer.innerHTML = "<p>Please select a month and year.</p>";
-            return;
-        }
-
-        fetch(`/data/events.json`)
-            .then(res => res.json())
-            .then(data => {
-                const filtered = data.filter(ev =>
-                    ev.month.toLowerCase() === month.toLowerCase() &&
-                    ev.year === year
-                );
-
-                if (filtered.length === 0) {
-                    eventsContainer.innerHTML = `<p>No events found for ${month} ${year}</p>`;
-                    return;
-                }
-
-                eventsContainer.innerHTML = filtered
-                    .map(ev => `<div class="event"><strong>${ev.year}</strong> - ${ev.name}</div>`)
-                    .join('');
-            })
-            .catch(err => {
-                console.error(err);
-                eventsContainer.innerHTML = `<p>Error loading events.</p>`;
+    // Load events.json from backend
+    fetch("/events")
+        .then(res => res.json())
+        .then(events => {
+            // Populate year dropdown dynamically
+            const years = [...new Set(events.map(e => e.year))].sort((a, b) => a - b);
+            years.forEach(y => {
+                const option = document.createElement("option");
+                option.value = y;
+                option.textContent = y;
+                yearSelect.appendChild(option);
             });
-    });
+
+            // Handle filter
+            function filterEvents() {
+                const selectedMonth = parseInt(monthSelect.value);
+                const selectedYear = parseInt(yearSelect.value);
+
+                const filtered = events.filter(e => e.month === selectedMonth && e.year === selectedYear);
+
+                eventsContainer.innerHTML = "";
+                if (filtered.length === 0) {
+                    eventsContainer.textContent = "No events found for this date.";
+                } else {
+                    filtered.forEach(e => {
+                        const div = document.createElement("div");
+                        div.textContent = `${e.date}: ${e.event}`;
+                        eventsContainer.appendChild(div);
+                    });
+                }
+            }
+
+            monthSelect.addEventListener("change", filterEvents);
+            yearSelect.addEventListener("change", filterEvents);
+        })
+        .catch(err => {
+            console.error("Error loading events:", err);
+            eventsContainer.textContent = "Failed to load events.";
+        });
 });
