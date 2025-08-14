@@ -1,20 +1,320 @@
 [
   {
-    "date": "1969-07-20",
-    "month": 7,
-    "year": 1969,
-    "event": "Apollo 11 lands on the Moon. Neil Armstrong becomes the first person to walk on its surface."
+    "date": "384 BC",
+    "month": 12,
+    "year": -383,
+    "event": "Birth of Aristotle, Greek philosopher and student of Plato."
   },
   {
-    "date": "1945-05-08",
+    "date": "44 BC-03-15",
+    "month": 3,
+    "year": -43,
+    "event": "Assassination of Julius Caesar on the Ides of March."
+  },
+  {
+    "date": "476-09-04",
+    "month": 9,
+    "year": 476,
+    "event": "Fall of the Western Roman Empire—Romulus Augustulus deposed."
+  },
+  {
+    "date": "793-08-08",
+    "month": 8,
+    "year": 793,
+    "event": "Vikings raid the Lindisfarne monastery, beginning the Viking Age in Europe."
+  },
+  {
+    "date": "1066-10-14",
+    "month": 10,
+    "year": 1066,
+    "event": "Battle of Hastings: William the Conqueror defeats Harold II to become King of England."
+  },
+  {
+    "date": "1215-06-15",
+    "month": 6,
+    "year": 1215,
+    "event": "Magna Carta sealed by King John of England at Runnymede."
+  },
+  {
+    "date": "1492-10-12",
+    "month": 10,
+    "year": 1492,
+    "event": "Christopher Columbus lands in the Americas (Bahamas), beginning widespread European exploration."
+  },
+  {
+    "date": "1517-10-31",
+    "month": 10,
+    "year": 1517,
+    "event": "Martin Luther posts his 95 Theses in Wittenberg—start of the Protestant Reformation."
+  },
+  {
+    "date": "1607-05-14",
     "month": 5,
-    "year": 1945,
-    "event": "Victory in Europe Day: Allied forces accept Nazi Germany's unconditional surrender."
+    "year": 1607,
+    "event": "Jamestown, Virginia, established as first permanent English settlement in the Americas."
+  },
+  {
+    "date": "1687-07-05",
+    "month": 7,
+    "year": 1687,
+    "event": "Newton publishes 'Principia Mathematica', laying foundation of classical mechanics."
   },
   {
     "date": "1776-07-04",
     "month": 7,
     "year": 1776,
-    "event": "United States Declaration of Independence is adopted."
+    "event": "American Declaration of Independence adopted."
+  },
+  {
+    "date": "1789-07-14",
+    "month": 7,
+    "year": 1789,
+    "event": "Storming of the Bastille—Parisians revolt, symbol of the French Revolution."
+  },
+  {
+    "date": "1804-12-02",
+    "month": 12,
+    "year": 1804,
+    "event": "Napoleon crowns himself Emperor of the French at Notre-Dame Cathedral, Paris."
+  },
+  {
+    "date": "1815-06-18",
+    "month": 6,
+    "year": 1815,
+    "event": "Battle of Waterloo—Napoleon defeated by allied British and Prussian forces."
+  },
+  {
+    "date": "1825-12-27",
+    "month": 12,
+    "year": 1825,
+    "event": "First public railway opens (Stockton and Darlington Railway), ushering in railway age."
+  },
+  {
+    "date": "1848-02-24",
+    "month": 2,
+    "year": 1848,
+    "event": "Began Revolutions of 1848 across Europe—a wave of liberal and nationalist uprisings."
+  },
+  {
+    "date": "1861-04-12",
+    "month": 4,
+    "year": 1861,
+    "event": "American Civil War begins with Confederate attack on Fort Sumter."
+  },
+  {
+    "date": "1865-04-15",
+    "month": 4,
+    "year": 1865,
+    "event": "US President Abraham Lincoln dies after being shot at Ford's Theatre."
+  },
+  {
+    "date": "1879-12-22",
+    "month": 12,
+    "year": 1879,
+    "event": "Thomas Edison demonstrates the incandescent light bulb."
+  },
+  {
+    "date": "1884-05-23",
+    "month": 5,
+    "year": 1884,
+    "event": "Statue of Liberty arrives in New York Harbor from France."
+  },
+  {
+    "date": "1914-07-28",
+    "month": 7,
+    "year": 1914,
+    "event": "Start of World War I—Austria-Hungary declares war on Serbia."
+  },
+  {
+    "date": "1917-11-07",
+    "month": 11,
+    "year": 1917,
+    "event": "Bolshevik Revolution in Russia—Lenin seizes power in October Revolution."
+  },
+  {
+    "date": "1918-11-11",
+    "month": 11,
+    "year": 1918,
+    "event": "Armistice signed—World War I ends on the eleventh hour."
+  },
+  {
+    "date": "1929-10-29",
+    "month": 10,
+    "year": 1929,
+    "event": "Black Tuesday—Wall Street crash precipitates the Great Depression."
+  },
+  {
+    "date": "1939-09-01",
+    "month": 9,
+    "year": 1939,
+    "event": "Start of World War II—Germany invades Poland."
+  },
+  {
+    "date": "1941-12-07",
+    "month": 12,
+    "year": 1941,
+    "event": "Pearl Harbor attacked; US enters World War II."
+  },
+  {
+    "date": "1945-05-08",
+    "month": 5,
+    "year": 1945,
+    "event": "VE Day—Victory in Europe at the end of WWII."
+  },
+  {
+    "date": "1947-08-15",
+    "month": 8,
+    "year": 1947,
+    "event": "India gains independence from British rule."
+  },
+  {
+    "date": "1949-10-01",
+    "month": 10,
+    "year": 1949,
+    "event": "People's Republic of China proclaimed by Mao Zedong."
+  },
+  {
+    "date": "1953-05-29",
+    "month": 5,
+    "year": 1953,
+    "event": "Sir Edmund Hillary and Tenzing Norgay reach the summit of Mount Everest."
+  },
+  {
+    "date": "1955-12-01",
+    "month": 12,
+    "year": 1955,
+    "event": "Rosa Parks refuses to give up her seat, sparking Montgomery Bus Boycott."
+  },
+  {
+    "date": "1957-10-04",
+    "month": 10,
+    "year": 1957,
+    "event": "Launch of Sputnik 1—the first artificial satellite."
+  },
+  {
+    "date": "1961-04-12",
+    "month": 4,
+    "year": 1961,
+    "event": "Yuri Gagarin becomes the first person in space."
+  },
+  {
+    "date": "1963-11-22",
+    "month": 11,
+    "year": 1963,
+    "event": "U.S. President John F. Kennedy assassinated in Dallas, Texas."
+  },
+  {
+    "date": "1969-07-20",
+    "month": 7,
+    "year": 1969,
+    "event": "Apollo 11 Moon landing—Neil Armstrong walks on the lunar surface."
+  },
+  {
+    "date": "1971-12-16",
+    "month": 12,
+    "year": 1971,
+    "event": "Bangladesh Liberation War concludes with the surrender of Pakistani forces."
+  },
+  {
+    "date": "1981-08-12",
+    "month": 8,
+    "year": 1981,
+    "event": "First Space Shuttle (Columbia) launched by NASA."
+  },
+  {
+    "date": "1986-04-26",
+    "month": 4,
+    "year": 1986,
+    "event": "Chernobyl nuclear disaster occurs in Ukraine."
+  },
+  {
+    "date": "1989-11-09",
+    "month": 11,
+    "year": 1989,
+    "event": "Fall of the Berlin Wall—East Germans cross freely into West Berlin."
+  },
+  {
+    "date": "1991-12-25",
+    "month": 12,
+    "year": 1991,
+    "event": "Dissolution of the Soviet Union—Gorbachev resigns."
+  },
+  {
+    "date": "1994-04-27",
+    "month": 4,
+    "year": 1994,
+    "event": "First non-racial democratic elections in South Africa—Nelson Mandela becomes president."
+  },
+  {
+    "date": "1997-07-01",
+    "month": 7,
+    "year": 1997,
+    "event": "Hong Kong handed over from UK to China."
+  },
+  {
+    "date": "2001-09-11",
+    "month": 9,
+    "year": 2001,
+    "event": "Al-Qaeda attacks on World Trade Center and Pentagon."
+  },
+  {
+    "date": "2004-12-26",
+    "month": 12,
+    "year": 2004,
+    "event": "Indian Ocean tsunami—devastating coastal communities after massive quake."
+  },
+  {
+    "date": "2008-11-04",
+    "month": 11,
+    "year": 2008,
+    "event": "Barack Obama elected as the 44th President of the United States."
+  },
+  {
+    "date": "2011-05-02",
+    "month": 5,
+    "year": 2011,
+    "event": "Osama bin Laden killed by U.S. Navy SEALs in Pakistan."
+  },
+  {
+    "date": "2012-07-20",
+    "month": 7,
+    "year": 2012,
+    "event": "NASA's Curiosity rover lands on Mars."
+  },
+  {
+    "date": "2016-06-23",
+    "month": 6,
+    "year": 2016,
+    "event": "Brexit referendum—UK votes to leave the European Union."
+  },
+  {
+    "date": "2017-01-21",
+    "month": 1,
+    "year": 2017,
+    "event": "Women’s March draws millions worldwide the day after U.S. presidential inauguration."
+  },
+  {
+    "date": "2020-03-11",
+    "month": 3,
+    "year": 2020,
+    "event": "WHO declares COVID-19 a global pandemic."
+  },
+  {
+    "date": "2023-08-23",
+    "month": 8,
+    "year": 2023,
+    "event": "Chandrayaan-3 lands near the Moon’s south pole—India’s historic lunar success."
+  },
+  {
+    "date": "2024-04-08",
+    "month": 4,
+    "year": 2024,
+    "event": "Total solar eclipse visible across North America."
+  },
+  {
+    "date": "2047-08-15",
+    "month": 8,
+    "year": 2047,
+    "event": "Centennial celebration of India’s independence."
   }
 ]
