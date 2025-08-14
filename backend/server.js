@@ -16,7 +16,7 @@ if (fs.existsSync(eventsPath)) {
 }
 
 // Serve frontend
-const frontendDir = path.join(__dirname, 'frontend');
+const frontendDir = path.join(__dirname, '..', 'frontend');
 if (fs.existsSync(frontendDir)) {
   app.use(express.static(frontendDir));
 }
