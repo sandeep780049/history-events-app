@@ -1,1 +1,21 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
 
+h1, h2 {
+  color: #333;
+}
+
+input, button {
+  margin: 5px;
+  padding: 5px;
+}
+
+#events-list li {
+  margin-bottom: 5px;
+}
+
+.quiz-question {
+  margin-top: 10px;
+}
