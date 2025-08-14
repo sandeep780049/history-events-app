@@ -1,18 +1,24 @@
-const express = require('express');
-const path = require('path');
+const express = require("express");
+const path = require("path");
+const fs = require("fs");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Serve frontend files
-app.use(express.static(path.join(__dirname, '../frontend')));
+app.use(express.static(path.join(__dirname, "frontend")));
 
-// Serve events.json from backend/data
-app.use('/data', express.static(path.join(__dirname, 'data')));
+app.get("/events", (req, res) => {
+    const filePath = path.join(__dirname, "data", "events.json");
+    fs.readFile(filePath, "utf8", (err, data) => {
+        if (err) {
+            return res.status(500).json({ error: "Error reading events file" });
+        }
+        res.json(JSON.parse(data));
+    });
+});
 
-// Fallback to index.html for any unknown route (single-page app handling)
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../frontend/index.html'));
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "frontend", "index.html"));
 });
 
 app.listen(PORT, () => {
