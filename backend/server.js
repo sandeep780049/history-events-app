@@ -1,4 +1,4 @@
-// server.js
+// backend/server.js
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
@@ -10,58 +10,65 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
-// Path to events.json (inside backend/data)
-const eventsPath = path.join(__dirname, 'data', 'events.json');
+// ---- paths (IMPORTANT: frontend is one level up from backend) ----
+const EVENTS_PATH = path.join(__dirname, 'data', 'events.json');     // backend/data/events.json
+const FRONTEND_DIR = path.join(__dirname, '..', 'frontend');         // ../frontend (root/frontend)
+
+// ---- load events ----
 let events = [];
 try {
-  events = JSON.parse(fs.readFileSync(eventsPath, 'utf-8'));
-} catch (err) {
-  console.error('Error reading events.json:', err.message);
+  events = JSON.parse(fs.readFileSync(EVENTS_PATH, 'utf8'));
+  if (!Array.isArray(events)) events = [];
+} catch (e) {
+  console.error('Could not read events.json at:', EVENTS_PATH, e.message);
+  events = [];
 }
 
-// Serve frontend (works both locally and on Render)
-const frontendDir = path.join(__dirname, 'frontend'); 
-
-if (fs.existsSync(frontendDir)) {
-  app.use(express.static(frontendDir));
+// ---- serve static frontend ----
+if (fs.existsSync(FRONTEND_DIR)) {
+  app.use(express.static(FRONTEND_DIR));
+} else {
+  console.warn('Frontend folder not found at:', FRONTEND_DIR);
 }
 
-// API: Get events by month/year
+// ---- API: events (exact match month AND year to match your script.js) ----
 app.get('/api/events', (req, res) => {
-  const { month, year } = req.query;
-  if (!month || !year) {
-    return res.status(400).json({ error: 'Month and year are required' });
-  }
-  const filteredEvents = events.filter(e =>
-    e.month === parseInt(month) && e.year === parseInt(year)
-  );
-  res.json(filteredEvents);
+  const month = parseInt(req.query.month, 10);
+  const year  = parseInt(req.query.year, 10);
+  if (!month || !year) return res.status(400).json({ error: 'Month and year are required' });
+
+  const filtered = events.filter(e => Number(e.month) === month && Number(e.year) === year);
+  res.json(filtered);
 });
 
-// API: Quiz feature
+// ---- API: quiz (one random event from the same set) ----
 app.post('/api/quiz', (req, res) => {
-  const { month, year } = req.body;
-  if (!month || !year) {
-    return res.status(400).json({ error: 'Month and year are required' });
-  }
-  const filteredEvents = events.filter(e =>
-    e.month === parseInt(month) && e.year === parseInt(year)
-  );
-  if (filteredEvents.length === 0) {
-    return res.json({ question: null, answer: null });
-  }
-  const randomEvent = filteredEvents[Math.floor(Math.random() * filteredEvents.length)];
+  const month = parseInt(req.body.month, 10);
+  const year  = parseInt(req.body.year, 10);
+  if (!month || !year) return res.status(400).json({ error: 'Month and year are required' });
+
+  const pool = events.filter(e => Number(e.month) === month && Number(e.year) === year);
+  if (pool.length === 0) return res.json({ question: null, answer: null });
+
+  const ev = pool[Math.floor(Math.random() * pool.length)];
   res.json({
-    question: `In which year did this happen: "${randomEvent.event}"?`,
-    answer: randomEvent.year
+    question: `In which year did this happen: "${ev.event}"?`,
+    answer: Number(ev.year)
   });
 });
 
-// Fallback to index.html
+// ---- SPA fallback: send index.html for any non-API path ----
 app.get(/^(?!\/api).*/, (req, res) => {
-  res.sendFile(path.join(frontendDir, 'index.html'));
+  const idx = path.join(FRONTEND_DIR, 'index.html');
+  if (fs.existsSync(idx)) return res.sendFile(idx);
+  return res
+    .status(500)
+    .send(`index.html not found. Expected at: ${idx}`);
 });
 
+// ---- start ----
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+  console.log('✅ Server running on port', PORT);
+  console.log('  ├─ events file:', EVENTS_PATH);
+  console.log('  └─ frontend dir:', FRONTEND_DIR);
 });
