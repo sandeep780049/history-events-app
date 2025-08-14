@@ -1,36 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Events Finder</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Historical Events Finder</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f7f7f7; padding: 20px; }
+    h1 { color: #333; }
+    select, input, button { padding: 8px; margin: 5px; border-radius: 5px; }
+    button { background: #4CAF50; color: white; border: none; cursor: pointer; }
+    button:hover { background: #45a049; }
+    .event { background: white; padding: 10px; margin: 10px 0; border-radius: 5px; }
+  </style>
 </head>
 <body>
-    <h1>Find Historical Events</h1>
+  <h1>Historical Events Finder</h1>
 
-    <label for="month">Month:</label>
-    <select id="month">
-        <option value="">--Select Month--</option>
-        <option>January</option>
-        <option>February</option>
-        <option>March</option>
-        <option>April</option>
-        <option>May</option>
-        <option>June</option>
-        <option>July</option>
-        <option>August</option>
-        <option>September</option>
-        <option>October</option>
-        <option>November</option>
-        <option>December</option>
-    </select>
+  <label for="month">Month:</label>
+  <select id="month"></select>
 
-    <label for="year">Year:</label>
-    <input type="number" id="year" placeholder="Enter year">
+  <label for="year">Year:</label>
+  <input type="number" id="year" placeholder="Enter year">
 
-    <button id="loadEvents">Load Events</button>
+  <button id="generate">Load Events</button>
 
-    <div id="events"></div>
+  <div id="results"></div>
 
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
