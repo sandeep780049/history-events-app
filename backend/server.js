@@ -2,22 +2,21 @@ const express = require('express');
 const path = require('path');
 
 const eventsRoute = require('./routes/events');
-const quizRoute = require('./routes/quiz'); // ✅ require first
+const quizRoute = require('./routes/quiz'); // for quiz questions
 
-const app = express(); // ✅ initialize app before using it
-
+const app = express();
 app.use(express.json());
 
-// Serve frontend files
-app.use(express.static(path.join(__dirname, 'frontend')));
+// ✅ Serve frontend from the folder outside backend
+app.use(express.static(path.join(__dirname, '../frontend')));
 
-// Use routes
+// ✅ API routes
 app.use('/events', eventsRoute);
-app.use('/quiz', quizRoute); // ✅ now safe to use
+app.use('/quiz', quizRoute);
 
-// Fallback for frontend routing
+// ✅ Fallback to index.html for any non-API route
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'frontend', 'index.html'));
+    res.sendFile(path.join(__dirname, '../frontend', 'index.html'));
 });
 
 const PORT = process.env.PORT || 3000;
