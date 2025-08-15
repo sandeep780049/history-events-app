@@ -5,6 +5,11 @@
     "year": -383,
     "event": "Birth of Aristotle, Greek philosopher and student of Plato."
   },
+  
+    { "date": "15 August", "month": 8, "year": 1947, "event": "India gained independence from British rule." },
+    { "date": "26 January", "month": 1, "year": 1950, "event": "India became a republic." },
+    { "date": "2 October", "month": 10, "year": 1869, "event": "Birth of Mahatma Gandhi." },
+  
   {
     "date": "1969-07-20",
     "month": 7,
