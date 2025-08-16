@@ -1,4 +1,4 @@
-// Load events
+// Load events for selected month & day
 async function loadEvents() {
     try {
         const month = document.getElementById("month").value;
@@ -9,12 +9,17 @@ async function loadEvents() {
             return;
         }
 
+        // Hide quiz if showing
+        document.getElementById("quizContainer").innerHTML = "";
+
         const res = await fetch(`/events/${month}/${day}`);
         if (!res.ok) throw new Error("Failed to load events");
 
         const events = await res.json();
         const eventsContainer = document.getElementById("eventsContainer");
+        const actions = document.getElementById("eventActions");
         eventsContainer.innerHTML = "";
+        actions.innerHTML = "";
 
         if (events.length === 0) {
             eventsContainer.innerHTML = "<p>No events found for this date.</p>";
@@ -28,45 +33,42 @@ async function loadEvents() {
             eventsContainer.appendChild(div);
         });
 
+        // Copy & Download buttons
+        const copyBtn = document.createElement("button");
+        copyBtn.textContent = "Copy Events";
+        copyBtn.onclick = () => {
+            const text = events.map(e => `${e.year} — ${e.description}`).join("\n");
+            navigator.clipboard.writeText(text);
+            alert("Events copied to clipboard!");
+        };
+
+        const downloadBtn = document.createElement("button");
+        downloadBtn.textContent = "Download Events";
+        downloadBtn.onclick = () => {
+            const text = events.map(e => `${e.year} — ${e.description}`).join("\n");
+            const blob = new Blob([text], { type: "text/plain" });
+            const link = document.createElement("a");
+            link.href = URL.createObjectURL(blob);
+            link.download = `events-${month}-${day}.txt`;
+            link.click();
+        };
+
+        actions.appendChild(copyBtn);
+        actions.appendChild(downloadBtn);
+
     } catch (err) {
         console.error(err);
         alert("Error loading events");
     }
 }
 
-// Copy events
-function copyEvents() {
-    const container = document.getElementById("eventsContainer");
-    if (!container.innerText.trim()) {
-        alert("No events to copy!");
-        return;
-    }
-    navigator.clipboard.writeText(container.innerText)
-        .then(() => alert("Events copied to clipboard ✅"))
-        .catch(() => alert("Failed to copy ❌"));
-}
-
-// Download events
-function downloadEvents() {
-    const container = document.getElementById("eventsContainer");
-    if (!container.innerText.trim()) {
-        alert("No events to download!");
-        return;
-    }
-    const blob = new Blob([container.innerText], { type: "text/plain" });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = "events.txt";
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-}
-
 // Load quiz
 async function loadQuiz() {
     try {
+        // Hide events if showing
+        document.getElementById("eventsContainer").innerHTML = "";
+        document.getElementById("eventActions").innerHTML = "";
+
         const res = await fetch("/quiz");
         if (!res.ok) throw new Error("Failed to load quiz");
 
@@ -102,6 +104,12 @@ async function loadQuiz() {
             });
             result += `<p><strong>You scored ${score} / ${quiz.length}</strong></p>`;
             quizContainer.innerHTML += `<div class="result">${result}</div>`;
+
+            // Next Quiz button
+            const nextBtn = document.createElement("button");
+            nextBtn.textContent = "Next Quiz";
+            nextBtn.onclick = loadQuiz;
+            quizContainer.appendChild(nextBtn);
         };
         quizContainer.appendChild(submitBtn);
 
@@ -109,4 +117,27 @@ async function loadQuiz() {
         console.error(err);
         alert("Error loading quiz");
     }
+}
+
+// Footer navigation functions
+function goHome() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    document.getElementById("quizContainer").innerHTML = "";
+    document.getElementById("eventsContainer").innerHTML = "";
+    document.getElementById("eventActions").innerHTML = "";
+}
+
+function openNCERT() {
+    window.open("https://amzn.to/3XXXXXX", "_blank"); // replace with affiliate link
+}
+
+function openUPSC() {
+    window.open("https://amzn.to/4XXXXXX", "_blank"); // replace with affiliate link
+}
+
+function scrollToQuiz() {
+    document.getElementById("eventsContainer").innerHTML = "";
+    document.getElementById("eventActions").innerHTML = "";
+    document.getElementById("quizContainer").scrollIntoView({ behavior: "smooth" });
+    loadQuiz();
 }
