@@ -1,41 +1,56 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>History Events</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>History Explorer</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Historical Events Finder</h1>
+  <header>
+    <h1>📜 History Explorer</h1>
+    <p>Select a date to explore events & test your knowledge with quizzes!</p>
+  </header>
 
-    <label>Month:
-        <select id="monthSelect">
-            <option value="1">January</option>
-            <option value="2">February</option>
-            <option value="3">March</option>
-            <option value="4">April</option>
-            <option value="5">May</option>
-            <option value="6">June</option>
-            <option value="7">July</option>
-            <option value="8">August</option>
-            <option value="9">September</option>
-            <option value="10">October</option>
-            <option value="11">November</option>
-            <option value="12">December</option>
-        </select>
-    </label>
+  <main>
+    <!-- Event Search -->
+    <section class="card">
+      <h2>Find Historical Events</h2>
+      <label for="month">Month:</label>
+      <select id="month">
+        <option value="1">January</option>
+        <option value="2">February</option>
+        <option value="3">March</option>
+        <option value="4">April</option>
+        <option value="5">May</option>
+        <option value="6">June</option>
+        <option value="7">July</option>
+        <option value="8">August</option>
+        <option value="9">September</option>
+        <option value="10">October</option>
+        <option value="11">November</option>
+        <option value="12">December</option>
+      </select>
 
-    <label>Year:
-        <input type="number" id="yearInput" placeholder="e.g. 1947">
-    </label>
-    <button onclick="loadEvents()">Load Events</button>
-    <button onclick="loadQuiz()">Take Quiz</button>
+      <label for="day">Day:</label>
+      <input type="number" id="day" min="1" max="31">
 
-    <h2>Events</h2>
-    <div id="eventsContainer"></div>
+      <button onclick="loadEvents()">🔍 Load Events</button>
+      <div id="results"></div>
+    </section>
 
-    <h2>Quiz</h2>
-    <div id="quizContainer"></div>
+    <!-- Quiz -->
+    <section class="card">
+      <h2>UPSC History Quiz</h2>
+      <button onclick="loadQuiz()">📝 Start Quiz</button>
+      <div id="quizContainer"></div>
+    </section>
+  </main>
 
-    <script src="script.js"></script>
+  <footer>
+    <p>Made for UPSC Aspirants | History Explorer</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
