@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>History Events & UPSC Quiz</title>
-  <meta name="description" content="Daily historical events and UPSC practice quizzes for aspirants. Stay updated with history and test your knowledge.">
+  <title>History & UPSC Prep Hub</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       margin: 0;
       background: #f4f4f4;
+      padding-bottom: 70px; /* space for footer */
     }
     header {
       background: #007bff;
       color: white;
       padding: 15px;
       text-align: center;
-      font-size: 22px;
+      font-size: 1.6em;
       font-weight: bold;
     }
     .section {
@@ -24,87 +24,115 @@
       padding: 20px;
       margin: 20px auto;
       max-width: 700px;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
     }
     h2 {
-      color: #007bff;
+      color: #333;
     }
-    button {
-      margin-top: 10px;
-      padding: 10px 15px;
-      border: none;
-      background: #007bff;
-      color: white;
-      border-radius: 6px;
-      cursor: pointer;
+    select, input, button {
+      margin: 8px;
+      padding: 8px 10px;
       font-size: 16px;
     }
-    button:hover {
-      background: #0056b3;
+    button {
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
     }
+    button:hover { background: #0056b3; }
     .event {
       margin: 8px 0;
       padding: 10px;
       background: #f9f9f9;
       border-left: 4px solid #007bff;
       border-radius: 5px;
+      text-align: left;
+    }
+    .event strong {
+      color: #007bff;
     }
     .result {
       margin-top: 15px;
       padding: 10px;
       background: #e9ffe9;
       border: 1px solid #00a000;
+      border-radius: 5px;
     }
-    /* Footer Nav */
-    footer {
+    .actions {
+      margin-top: 10px;
+    }
+    .footer {
       position: fixed;
       bottom: 0;
       left: 0;
-      width: 100%;
+      right: 0;
       background: #007bff;
+      color: white;
       display: flex;
       justify-content: space-around;
       padding: 10px 0;
     }
-    footer a {
+    .footer button {
+      background: none;
+      border: none;
       color: white;
-      text-decoration: none;
-      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
     }
-    footer a:hover {
+    .footer button:hover {
       text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <header>📜 History Events & UPSC Quiz</header>
+  <header>📜 History & UPSC Prep Hub</header>
 
-  <div class="section">
+  <!-- Events Section -->
+  <div class="section" id="eventsSection">
     <h2>Find Historical Events</h2>
     <label for="month">Month:</label>
-    <input type="number" id="month" min="1" max="12">
+    <select id="month">
+      <option value="">--Select--</option>
+      <option value="1">January</option>
+      <option value="2">February</option>
+      <option value="3">March</option>
+      <option value="4">April</option>
+      <option value="5">May</option>
+      <option value="6">June</option>
+      <option value="7">July</option>
+      <option value="8">August</option>
+      <option value="9">September</option>
+      <option value="10">October</option>
+      <option value="11">November</option>
+      <option value="12">December</option>
+    </select>
+
     <label for="day">Day:</label>
     <input type="number" id="day" min="1" max="31">
+
     <br>
     <button onclick="loadEvents()">Load Events</button>
-    <button onclick="copyEvents()">📋 Copy</button>
-    <button onclick="downloadEvents()">⬇️ Download</button>
+    <div class="actions" id="eventActions"></div>
     <div id="eventsContainer"></div>
   </div>
 
-  <div id="quizSection" class="section">
+  <!-- Quiz Section -->
+  <div class="section" id="quizSection">
     <h2>UPSC Practice Quiz</h2>
     <button onclick="loadQuiz()">Take Quiz</button>
     <div id="quizContainer"></div>
   </div>
 
-  <footer>
-    <a href="/">🏠 Home</a>
-    <a href="#ncert">📘 NCERT</a>
-    <a href="#upsc">📖 UPSC</a>
-    <a href="#quizSection">📝 Quiz</a>
-  </footer>
+  <!-- Footer -->
+  <div class="footer">
+    <button onclick="goHome()">🏠 Home</button>
+    <button onclick="openNCERT()">📚 NCERT</button>
+    <button onclick="openUPSC()">📖 UPSC</button>
+    <button onclick="scrollToQuiz()">📝 Quiz</button>
+  </div>
 
   <script src="script.js"></script>
 </body>
