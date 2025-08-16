@@ -1,0 +1,102 @@
+[
+  {
+    "question": "Who was the first Governor-General of India?",
+    "options": ["Lord Wellesley", "Lord Cornwallis", "Warren Hastings", "Lord Dalhousie"],
+    "answer": "Warren Hastings"
+  },
+  {
+    "question": "In which year was the Non-Cooperation Movement launched?",
+    "options": ["1915", "1920", "1930", "1942"],
+    "answer": "1920"
+  },
+  {
+    "question": "The Dandi March was associated with which movement?",
+    "options": ["Civil Disobedience Movement", "Quit India Movement", "Swadeshi Movement", "Non-Cooperation Movement"],
+    "answer": "Civil Disobedience Movement"
+  },
+  {
+    "question": "Which of the following Articles of the Constitution deals with Right to Equality?",
+    "options": ["Article 12-18", "Article 19-22", "Article 23-24", "Article 25-28"],
+    "answer": "Article 12-18"
+  },
+  {
+    "question": "Which of the following is not a Fundamental Right?",
+    "options": ["Right to Equality", "Right to Property", "Right to Freedom", "Right against Exploitation"],
+    "answer": "Right to Property"
+  },
+  {
+    "question": "Which Viceroy introduced the Doctrine of Lapse?",
+    "options": ["Lord Dalhousie", "Lord Wellesley", "Lord Curzon", "Lord Ripon"],
+    "answer": "Lord Dalhousie"
+  },
+  {
+    "question": "Which of the following is called the 'Granary of the World'?",
+    "options": ["Prairies of North America", "Steppes of Russia", "Downs of Australia", "Savannahs of Africa"],
+    "answer": "Prairies of North America"
+  },
+  {
+    "question": "The Planning Commission of India was replaced by?",
+    "options": ["NITI Aayog", "Finance Commission", "National Development Council", "Economic Advisory Council"],
+    "answer": "NITI Aayog"
+  },
+  {
+    "question": "Which Article of the Indian Constitution deals with emergency provisions?",
+    "options": ["Article 352", "Article 356", "Article 360", "All of the above"],
+    "answer": "All of the above"
+  },
+  {
+    "question": "Who is known as the 'Father of the Indian Constitution'?",
+    "options": ["Jawaharlal Nehru", "B.R. Ambedkar", "Rajendra Prasad", "Sardar Patel"],
+    "answer": "B.R. Ambedkar"
+  },
+  {
+    "question": "Which was the first newspaper published in India?",
+    "options": ["The Hindu", "Bengal Gazette", "Amrita Bazar Patrika", "Indian Mirror"],
+    "answer": "Bengal Gazette"
+  },
+  {
+    "question": "Which Indian leader gave the slogan 'Do or Die'?",
+    "options": ["Subhash Chandra Bose", "Mahatma Gandhi", "Bal Gangadhar Tilak", "Bhagat Singh"],
+    "answer": "Mahatma Gandhi"
+  },
+  {
+    "question": "Which of the following rivers is known as 'Dakshina Ganga'?",
+    "options": ["Cauvery", "Godavari", "Krishna", "Narmada"],
+    "answer": "Godavari"
+  },
+  {
+    "question": "Who among the following founded the Indian National Congress?",
+    "options": ["W.C. Bonnerjee", "A.O. Hume", "Dadabhai Naoroji", "Surendranath Banerjee"],
+    "answer": "A.O. Hume"
+  },
+  {
+    "question": "Which Article of the Indian Constitution abolishes Untouchability?",
+    "options": ["Article 15", "Article 16", "Article 17", "Article 19"],
+    "answer": "Article 17"
+  },
+  {
+    "question": "Who was the first Indian to win a Nobel Prize?",
+    "options": ["C.V. Raman", "Rabindranath Tagore", "Amartya Sen", "Mother Teresa"],
+    "answer": "Rabindranath Tagore"
+  },
+  {
+    "question": "The Battle of Plassey was fought in which year?",
+    "options": ["1757", "1764", "1857", "1799"],
+    "answer": "1757"
+  },
+  {
+    "question": "Which Five-Year Plan focused on 'Garibi Hatao'?",
+    "options": ["3rd Plan", "4th Plan", "5th Plan", "6th Plan"],
+    "answer": "5th Plan"
+  },
+  {
+    "question": "Who was the first woman President of the Indian National Congress?",
+    "options": ["Annie Besant", "Sarojini Naidu", "Vijayalakshmi Pandit", "Indira Gandhi"],
+    "answer": "Annie Besant"
+  },
+  {
+    "question": "Which planet is called the 'Red Planet'?",
+    "options": ["Venus", "Mars", "Jupiter", "Mercury"],
+    "answer": "Mars"
+  }
+]
