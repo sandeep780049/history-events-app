@@ -4,23 +4,31 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>History Events & UPSC Quiz</title>
+  <meta name="description" content="Daily historical events and UPSC practice quizzes for aspirants. Stay updated with history and test your knowledge.">
   <style>
     body {
       font-family: Arial, sans-serif;
-      margin: 20px;
+      margin: 0;
       background: #f4f4f4;
     }
-    h1 {
+    header {
+      background: #007bff;
+      color: white;
+      padding: 15px;
       text-align: center;
-      color: #333;
+      font-size: 22px;
+      font-weight: bold;
     }
     .section {
       background: white;
       padding: 20px;
       margin: 20px auto;
-      max-width: 600px;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      max-width: 700px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+    h2 {
+      color: #007bff;
     }
     button {
       margin-top: 10px;
@@ -28,8 +36,9 @@
       border: none;
       background: #007bff;
       color: white;
-      border-radius: 5px;
+      border-radius: 6px;
       cursor: pointer;
+      font-size: 16px;
     }
     button:hover {
       background: #0056b3;
@@ -39,6 +48,7 @@
       padding: 10px;
       background: #f9f9f9;
       border-left: 4px solid #007bff;
+      border-radius: 5px;
     }
     .result {
       margin-top: 15px;
@@ -46,10 +56,29 @@
       background: #e9ffe9;
       border: 1px solid #00a000;
     }
+    /* Footer Nav */
+    footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: #007bff;
+      display: flex;
+      justify-content: space-around;
+      padding: 10px 0;
+    }
+    footer a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
-  <h1>📜 History Events & UPSC Quiz</h1>
+  <header>📜 History Events & UPSC Quiz</header>
 
   <div class="section">
     <h2>Find Historical Events</h2>
@@ -57,15 +86,25 @@
     <input type="number" id="month" min="1" max="12">
     <label for="day">Day:</label>
     <input type="number" id="day" min="1" max="31">
+    <br>
     <button onclick="loadEvents()">Load Events</button>
+    <button onclick="copyEvents()">📋 Copy</button>
+    <button onclick="downloadEvents()">⬇️ Download</button>
     <div id="eventsContainer"></div>
   </div>
 
-  <div class="section">
+  <div id="quizSection" class="section">
     <h2>UPSC Practice Quiz</h2>
     <button onclick="loadQuiz()">Take Quiz</button>
     <div id="quizContainer"></div>
   </div>
+
+  <footer>
+    <a href="/">🏠 Home</a>
+    <a href="#ncert">📘 NCERT</a>
+    <a href="#upsc">📖 UPSC</a>
+    <a href="#quizSection">📝 Quiz</a>
+  </footer>
 
   <script src="script.js"></script>
 </body>
