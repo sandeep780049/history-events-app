@@ -1,13 +1,13 @@
 {
-  "name": "history-events-app",
+  "name": "history-explorer",
   "version": "1.0.0",
-  "description": "Historical events by month and year with quiz and timeline",
+  "description": "History events explorer with UPSC quiz",
   "main": "backend/server.js",
   "scripts": {
     "start": "node backend/server.js"
   },
   "dependencies": {
-    "cors": "^2.8.5",
-    "express": "^4.18.2"
+    "express": "^4.19.2",
+    "node-fetch": "^2.6.7"
   }
 }
