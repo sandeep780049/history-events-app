@@ -1,55 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>History Explorer</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>History Events Explorer</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f9;
+      color: #333;
+      text-align: center;
+    }
+    header {
+      background: #4a90e2;
+      color: white;
+      padding: 20px;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    .container {
+      margin: 20px auto;
+      padding: 20px;
+      max-width: 800px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    label {
+      font-weight: bold;
+      margin-right: 10px;
+    }
+    select, input, button {
+      margin: 5px;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+    button {
+      background: #4a90e2;
+      color: white;
+      cursor: pointer;
+      border: none;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #357abd;
+    }
+    #eventsContainer, #quizContainer {
+      margin-top: 20px;
+      text-align: left;
+    }
+    .event {
+      padding: 10px;
+      margin-bottom: 10px;
+      border-left: 4px solid #4a90e2;
+      background: #f9f9f9;
+      border-radius: 5px;
+    }
+    .quiz-question {
+      margin: 15px 0;
+      padding: 10px;
+      background: #f1f8ff;
+      border-radius: 6px;
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>📜 History Explorer</h1>
-    <p>Select a date to explore events & test your knowledge with quizzes!</p>
-  </header>
+  <header>📜 History Events Explorer</header>
 
-  <main>
-    <!-- Event Search -->
-    <section class="card">
-      <h2>Find Historical Events</h2>
-      <label for="month">Month:</label>
-      <select id="month">
-        <option value="1">January</option>
-        <option value="2">February</option>
-        <option value="3">March</option>
-        <option value="4">April</option>
-        <option value="5">May</option>
-        <option value="6">June</option>
-        <option value="7">July</option>
-        <option value="8">August</option>
-        <option value="9">September</option>
-        <option value="10">October</option>
-        <option value="11">November</option>
-        <option value="12">December</option>
-      </select>
+  <div class="container">
+    <h2>Find Events by Date</h2>
+    <label for="monthSelect">Month:</label>
+    <select id="monthSelect">
+      <option value="1">January</option>
+      <option value="2">February</option>
+      <option value="3">March</option>
+      <option value="4">April</option>
+      <option value="5">May</option>
+      <option value="6">June</option>
+      <option value="7">July</option>
+      <option value="8">August</option>
+      <option value="9">September</option>
+      <option value="10">October</option>
+      <option value="11">November</option>
+      <option value="12">December</option>
+    </select>
 
-      <label for="day">Day:</label>
-      <input type="number" id="day" min="1" max="31">
+    <label for="dayInput">Day:</label>
+    <input type="number" id="dayInput" min="1" max="31" placeholder="Enter day" />
 
-      <button onclick="loadEvents()">🔍 Load Events</button>
-      <div id="results"></div>
-    </section>
+    <br><br>
+    <button onclick="loadEvents()">Load Events</button>
+    <div id="eventsContainer"></div>
 
-    <!-- Quiz -->
-    <section class="card">
-      <h2>UPSC History Quiz</h2>
-      <button onclick="loadQuiz()">📝 Start Quiz</button>
-      <div id="quizContainer"></div>
-    </section>
-  </main>
-
-  <footer>
-    <p>Made for UPSC Aspirants | History Explorer</p>
-  </footer>
+    <hr>
+    <h2>Test Your Knowledge</h2>
+    <button onclick="loadQuiz()">Take Quiz</button>
+    <div id="quizContainer"></div>
+  </div>
 
   <script src="script.js"></script>
 </body>
