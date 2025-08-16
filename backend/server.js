@@ -6,7 +6,9 @@ const PORT = process.env.PORT || 10000;
 
 // Serve frontend files
 app.use(express.static(path.join(__dirname, "../frontend")));
-
+app.get("/ping", (req, res) => {
+  res.json({ message: "Server is live ✅" });
+});
 // Route to fetch historical events from external API
 app.get("/events", async (req, res) => {
   try {
