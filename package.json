@@ -1,13 +1,17 @@
 {
-  "name": "history-explorer",
+  "name": "history-events-app",
   "version": "1.0.0",
-  "description": "History events explorer with UPSC quiz",
+  "description": "History Explorer App for UPSC Aspirants",
   "main": "backend/server.js",
   "scripts": {
     "start": "node backend/server.js"
   },
   "dependencies": {
-    "express": "^4.19.2",
-    "node-fetch": "^2.6.7"
+    "express": "^4.18.2",
+    "axios": "^1.7.2",
+    "cors": "^2.8.5"
+  },
+  "engines": {
+    "node": ">=18.x"
   }
 }
