@@ -1,4 +1,4 @@
-// Load events for selected month & day
+// Load events
 async function loadEvents() {
     try {
         const month = document.getElementById("month").value;
@@ -32,6 +32,36 @@ async function loadEvents() {
         console.error(err);
         alert("Error loading events");
     }
+}
+
+// Copy events
+function copyEvents() {
+    const container = document.getElementById("eventsContainer");
+    if (!container.innerText.trim()) {
+        alert("No events to copy!");
+        return;
+    }
+    navigator.clipboard.writeText(container.innerText)
+        .then(() => alert("Events copied to clipboard ✅"))
+        .catch(() => alert("Failed to copy ❌"));
+}
+
+// Download events
+function downloadEvents() {
+    const container = document.getElementById("eventsContainer");
+    if (!container.innerText.trim()) {
+        alert("No events to download!");
+        return;
+    }
+    const blob = new Blob([container.innerText], { type: "text/plain" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "events.txt";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
 }
 
 // Load quiz
