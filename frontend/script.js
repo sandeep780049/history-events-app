@@ -128,11 +128,11 @@ function goHome() {
 }
 
 function openNCERT() {
-    window.open("https://amzn.to/3XXXXXX", "_blank"); // replace with affiliate link
+  window.location.href = "ncert.html"; // open NCERT page
 }
 
 function openUPSC() {
-    window.open("https://amzn.to/4XXXXXX", "_blank"); // replace with affiliate link
+  window.location.href = "upsc.html"; // open UPSC page
 }
 
 function scrollToQuiz() {
